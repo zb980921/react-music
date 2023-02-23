@@ -1,0 +1,54 @@
+{
+  "name": "react-music",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint --fix",
+    "prepare": "husky install",
+    "commit": "cz"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router": "^6.8.1"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config-react": "^0.35.2",
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@types/node": "^18.14.1",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react": "^3.1.0",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.34.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.1.2",
+    "sass": "^1.58.3",
+    "typescript": "^4.9.3",
+    "vite": "^4.1.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "@antfu/react"
+    ],
+    "ignorePatterns": [
+      "dist"
+    ]
+  },
+  "lint-staged": {
+    ".{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ]
+  }
+}
