@@ -53,6 +53,9 @@
     ],
     "ignorePatterns": [
       "dist"
-    ]
+    ],
+    "rules": {
+      "no-console": "warn"
+    }
   }
 }

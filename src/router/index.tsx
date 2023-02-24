@@ -1,17 +1,60 @@
-import { Route, createHashRouter, createRoutesFromElements } from 'react-router-dom'
+import { Navigate, createBrowserRouter } from 'react-router-dom'
+import { lazy } from 'react'
 import App from '@/App'
-import Home from '@/pages/home'
-import My from '@/pages/my'
-import Friend from '@/pages/friend'
-import Download from '@/pages/download'
+import ErrorPage from '@/pages/error-page'
+import Discover from '@/pages/discover'
 
-export const router = createHashRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<App />}>
-      <Route path="" element={<Home />}></Route>
-      <Route path="my" element={<My />}></Route>
-      <Route path="friend" element={<Friend />}></Route>
-      <Route path="download" element={<Download />}></Route>
-    </Route>,
-  ),
-)
+const Recommend = lazy(() => import('@/pages/discover/recommend'))
+const Toplist = lazy(() => import('@/pages/discover/toplist'))
+const Playlist = lazy(() => import('@/pages/discover/playlist'))
+const Djradio = lazy(() => import('@/pages/discover/djradio'))
+const Artist = lazy(() => import('@/pages/discover/artist'))
+const Album = lazy(() => import('@/pages/discover/album'))
+
+export const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '',
+        element: <Navigate to="discover" />,
+      },
+      {
+        path: 'discover',
+        element: <Discover />,
+        children: [
+          {
+            path: '',
+            element: <Navigate to="recommend" />,
+          },
+          {
+            path: 'recommend',
+            element: <Recommend />,
+          },
+          {
+            path: 'toplist',
+            element: <Toplist />,
+          },
+          {
+            path: 'playlist',
+            element: <Playlist />,
+          },
+          {
+            path: 'djradio',
+            element: <Djradio />,
+          },
+          {
+            path: 'artist',
+            element: <Artist />,
+          },
+          {
+            path: 'album',
+            element: <Album />,
+          },
+        ],
+      },
+    ],
+  },
+])

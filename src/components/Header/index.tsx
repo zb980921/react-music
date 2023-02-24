@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import SvgIcon from '../SvgIcon'
 import style from './Header.module.scss'
 import logo from '@/assets/imgs/logo.jpg'
@@ -23,16 +23,25 @@ const Header = () => {
           </a>
 
           <ul className={style.menus}>
-            {menus.map(({ title, to }) => (
-              <li key={title} className={style.menu}>
-                <Link
-                  to={to}
-                  target={to.startsWith('http') ? '_blank' : '_self'}
-                >
-                  {title}
-                </Link>
-              </li>
-            ))}
+            {menus.map(({ title, to }) => {
+              const external = to.startsWith('http')
+              return (
+                <li key={title} className={style.menu}>
+                  {
+                    external
+                      ? <Link to={to} target="_blank">
+                          {title}
+                        </Link>
+                      : <NavLink to={to} className={(o) => {
+                        console.log(o)
+                        return ''
+                      }}>
+                          {title}
+                        </NavLink>
+                  }
+                </li>
+              )
+            })}
           </ul>
         </div>
 
