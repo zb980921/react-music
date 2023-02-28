@@ -1,5 +1,6 @@
 .wrapper {
   background-color: #242424;
+  border-bottom: 1px solid #000;
 
   .inner {
     width: 1100px;
@@ -35,9 +36,33 @@
           a {
             display: block;
             padding: 0 19px;
+            position: relative;
             &:hover {
               background: #000;
               color: #fff;
+            }
+
+            &.active {
+              background: #000;
+              color: #fff;
+
+              &::after {
+                position: absolute;
+                display: block;
+                content: "";
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-color: $primary-color;
+                border-width: 6px;
+
+                border-top-color: transparent;
+                border-left-color: transparent;
+                border-right-color: transparent;
+                bottom: -1px;
+                left: 50%;
+                transform: translateX(-50%);
+              }
             }
           }
         }
@@ -96,6 +121,41 @@
         &:hover {
           text-decoration: underline;
         }
+      }
+    }
+  }
+}
+
+.subMenuWrapper {
+  background: $primary-color;
+  border-bottom: 1px solid #a40011;
+  color: #fff;
+  font-size: 12px;
+  .subMenu {
+    width: 1100px;
+    height: 35px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding-left: 180px;
+
+    a {
+      height: 100%;
+      margin: 0 17px;
+      display: flex;
+      align-items: center;
+
+      &.subActive em,
+      &:hover em {
+        background: #9b0909;
+      }
+      em {
+        font-style: normal;
+        display: block;
+        height: 21px;
+        border-radius: 20px;
+        padding: 0 13px;
+        line-height: 21px;
       }
     }
   }
