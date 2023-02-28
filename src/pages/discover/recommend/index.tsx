@@ -1,8 +1,11 @@
 import React from 'react'
+import Banner from './cpns/Banner'
 
 const Recommend = () => {
   return (
-    <div>Recommend</div>
+    <div>
+      <Banner />
+    </div>
   )
 }
 

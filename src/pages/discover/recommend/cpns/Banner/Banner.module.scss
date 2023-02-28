@@ -1,0 +1,94 @@
+.wrapper {
+  background-size: 6000px;
+  background-position: center;
+  .banner {
+    width: 982px;
+    height: 285px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+
+    .ban {
+      img {
+        width: 730px;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .arrow {
+      position: absolute;
+      cursor: pointer;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 37px;
+      height: 63px;
+      display: flex;
+      &:hover {
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      &.left {
+        left: -68px;
+      }
+      &.right {
+        right: -68px;
+      }
+    }
+
+    .dots {
+      position: absolute;
+      bottom: 5px;
+      width: 730px;
+      height: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      a {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        &:hover .dot,
+        &.active .dot {
+          background: $primary-color;
+        }
+        .dot {
+          display: inline-block;
+          width: 6px;
+          height: 6px;
+          border-radius: 6px;
+          background: rgba(255, 255, 255, 0.7);
+        }
+      }
+    }
+  }
+
+  .download {
+    flex: 1;
+    &,
+    .btn {
+      background: url("@/assets/imgs/banner-download.png") no-repeat 0 0;
+    }
+
+    .btn {
+      display: block;
+      width: 215px;
+      height: 56px;
+      margin: 186px 0 0 19px;
+      text-indent: -9999px;
+      background-position: 0 9999px;
+      cursor: pointer;
+
+      &:hover {
+        background-position: 0 -290px;
+      }
+    }
+
+    p {
+      color: #8d8d8d;
+      margin: 15px auto;
+      text-align: center;
+    }
+  }
+}
