@@ -1,0 +1,51 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px 5px 34px;
+  border-bottom: 2px solid $primary-color;
+  margin-bottom: 20px;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+
+  > a {
+    margin-right: 20px;
+  }
+  h3 {
+    font-size: 20px;
+    color: #333;
+    font-weight: normal;
+    line-height: 28px;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      display: block;
+      content: "";
+      width: 6px;
+      height: 6px;
+      border: 4px solid $primary-color;
+      border-radius: 50%;
+      left: -24px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.headerRight {
+  color: #666;
+  > a {
+    display: flex;
+    align-items: center;
+    svg {
+      margin-left: 4px;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

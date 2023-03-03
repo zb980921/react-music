@@ -1,0 +1,23 @@
+.list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.hotCategories {
+  display: flex;
+  color: #666;
+
+  > li {
+    > a {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  > span {
+    margin: 0 10px;
+    color: #ccc;
+  }
+}

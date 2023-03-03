@@ -61,7 +61,7 @@ const Header = () => {
 
           <div className={style.right}>
             <div className={style.search}>
-              <SvgIcon name="search" width="16" height="16" color="#666" />
+              <SvgIcon name="search" size={16} color="#666" />
               <input type="text" placeholder="音乐/视频/电台/用户" />
             </div>
 

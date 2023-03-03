@@ -7,6 +7,9 @@
 body {
   color: $primary-text-color;
   font-size: 12px;
+  min-width: 982px;
+  overflow: hidden;
+  background: #f5f5f5;
 }
 
 ul {

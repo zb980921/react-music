@@ -53,69 +53,69 @@ const Banner = () => {
     return `/${targetMap[targetType]}?id=${targetId}`
   }
 
-  return (
-    currentBannerItem && (
-      <div
-        className={style.wrapper}
-        style={{
-          backgroundImage: `url(${currentBannerItem.imageUrl}?imageView&blur=40x20)`,
-        }}
-        onMouseOver={stopInterval}
-        onMouseLeave={startInterval}
-      >
-        <div className={style.banner}>
-          {/* 图片展示 */}
-          <div className={style.ban}>
+  return currentBannerItem?.scm
+    ? (
+    <div
+      className={style.wrapper}
+      style={{
+        backgroundImage: `url(${currentBannerItem.imageUrl}?imageView&blur=40x20)`,
+      }}
+      onMouseOver={stopInterval}
+      onMouseLeave={startInterval}
+    >
+      <div className={style.banner}>
+        {/* 图片展示 */}
+        <div className={style.ban}>
+          <a
+            href={genBannerLink(
+              currentBannerItem.targetType,
+              currentBannerItem.targetId,
+            )}
+          >
+            <img src={currentBannerItem.imageUrl} alt="" />
+          </a>
+        </div>
+
+        {/* 下载区域 */}
+        <div className={style.download}>
+          <a
+            className={style.btn}
+            href="https://music.163.com/download"
+            target="_blank"
+            rel="noreferrer"
+          ></a>
+          <p>PC 安卓 iPhone WP iPad Mac 六大客户端</p>
+        </div>
+
+        {/* 左右箭头 */}
+        <div
+          className={`${style.arrow} ${style.left}`}
+          onClick={() => updateCurrentIndex(-1)}
+        >
+          <SvgIcon name="arrow-left" color="#fff" />
+        </div>
+        <div
+          className={`${style.arrow} ${style.right}`}
+          onClick={() => updateCurrentIndex(1)}
+        >
+          <SvgIcon name="arrow-right" color="#fff" />
+        </div>
+
+        {/* 指示点 */}
+        <div className={style.dots}>
+          {banner!.banners.map((_, i) => (
             <a
-              href={genBannerLink(
-                currentBannerItem.targetType,
-                currentBannerItem.targetId,
-              )}
+              key={i}
+              onClick={() => setCurrentIndex(i)}
+              className={currentIndex === i ? style.active : ''}
             >
-              <img src={currentBannerItem.imageUrl} alt="" />
+              <span className={style.dot}></span>
             </a>
-          </div>
-
-          {/* 下载区域 */}
-          <div className={style.download}>
-            <a
-              className={style.btn}
-              href="https://music.163.com/download"
-              target="_blank"
-              rel="noreferrer"
-            ></a>
-            <p>PC 安卓 iPhone WP iPad Mac 六大客户端</p>
-          </div>
-
-          {/* 左右箭头 */}
-          <div
-            className={`${style.arrow} ${style.left}`}
-            onClick={() => updateCurrentIndex(-1)}
-          >
-            <SvgIcon name="arrow-left" color="#fff" />
-          </div>
-          <div
-            className={`${style.arrow} ${style.right}`}
-            onClick={() => updateCurrentIndex(1)}
-          >
-            <SvgIcon name="arrow-right" color="#fff" />
-          </div>
-
-          {/* 指示点 */}
-          <div className={style.dots}>
-            {banner!.banners.map((_, i) => (
-              <a
-                key={i}
-                onClick={() => setCurrentIndex(i)}
-                className={currentIndex === i ? style.active : ''}
-              >
-                <span className={style.dot}></span>
-              </a>
-            ))}
-          </div>
+          ))}
         </div>
       </div>
-    )
-  )
+    </div>
+      )
+    : null
 }
 export default Banner

@@ -31,3 +31,32 @@ export type BannerItem = {
     bannerBizType: string
   }>
 } & ResWithCode
+
+interface PlaylistTag {
+  id: number
+  name: string
+  category: number
+  usedCount: number
+  type: number
+  position: number
+  createTime: number
+  highQuality: number
+  highQualityPos: number
+  officialPos: number
+}
+
+/** 热门歌单分类 */
+export type HotPlaylistCategory = {
+  tags: Array<{
+    playlistTag: PlaylistTag
+    activity: boolean
+    hot: boolean
+    createTime: number
+    position: number
+    category: number
+    usedCount: number
+    name: string
+    id: number
+    type: number
+  }>
+} & ResWithCode
