@@ -1,4 +1,9 @@
-import type { Banner, HotPlaylistCategory, RecommendPlaylist } from '../models'
+import type {
+  Banner,
+  HotPlaylistCategory,
+  NewestAlbum,
+  RecommendPlaylist,
+} from '../models'
 import type { ResWithCode, ResWithHasTaste } from '../models/share'
 import request from '../request'
 
@@ -26,5 +31,12 @@ export function getRecommendPlaylists(limit = 8) {
   return request.get<ResWithHasTaste & { result: RecommendPlaylist[] }>({
     url: '/personalized',
     params: { limit },
+  })
+}
+
+/** 获取新碟上架 */
+export function getNewestAlbums() {
+  return request.get<ResWithCode & { albums: NewestAlbum[] }>({
+    url: '/album/newest',
   })
 }

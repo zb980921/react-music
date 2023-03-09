@@ -1,0 +1,38 @@
+.wrapper {
+  flex: none;
+  width: 118px;
+  height: 150px;
+}
+
+.cover {
+  display: block;
+  height: 100px;
+  background: url("@/assets/imgs/coverall.png") no-repeat;
+  background-position: 0 -570px;
+  margin-bottom: 7px;
+
+  img {
+    width: 100px;
+  }
+}
+
+.name,
+.artist {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 18px;
+}
+
+.name {
+  color: #000;
+}
+
+.artist {
+  color: #666;
+}
+
+a:hover {
+  text-decoration: underline;
+}
