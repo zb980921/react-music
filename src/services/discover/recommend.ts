@@ -1,12 +1,30 @@
-import type { BannerItem, HotPlaylistCategory } from '../models'
+import type { Banner, HotPlaylistCategory, RecommendPlaylist } from '../models'
+import type { ResWithCode, ResWithHasTaste } from '../models/share'
 import request from '../request'
 
 /** 获取轮播图列表 */
 export function getBanner() {
-  return request.get<BannerItem>({ url: '/banner', params: { type: 0 } })
+  return request.get<ResWithCode & { banners: Banner[] }>({
+    url: '/banner',
+    params: { type: 0 },
+  })
 }
 
 /** 获取热门歌单分类 */
 export function getHotPlaylistCategory() {
-  return request.get<HotPlaylistCategory>({ url: '/playlist/hot' })
+  return request.get<ResWithCode & { tags: HotPlaylistCategory[] }>({
+    url: '/playlist/hot',
+  })
+}
+
+/**
+ * 获取热门推荐歌单列表
+ * @param limit 条数
+ * @returns
+ */
+export function getRecommendPlaylists(limit = 8) {
+  return request.get<ResWithHasTaste & { result: RecommendPlaylist[] }>({
+    url: '/personalized',
+    params: { limit },
+  })
 }

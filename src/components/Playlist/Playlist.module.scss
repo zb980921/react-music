@@ -1,0 +1,46 @@
+.wrapper {
+  width: 140px;
+  height: 204px;
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+
+.cover {
+  position: relative;
+  > img {
+    width: 100%;
+  }
+}
+
+.info {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 27px;
+  color: #ccc;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  > div {
+    display: flex;
+    align-items: center;
+  }
+
+  span {
+    margin-left: 4px;
+  }
+}
+
+.name {
+  color: #000;
+  font-size: 14px;
+  margin: 8px 0 3px;
+  line-height: 1.4;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
